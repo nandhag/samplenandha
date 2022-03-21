@@ -1,0 +1,171 @@
+
+<!--interpolation--> 
+<h1>{{currentcustomer}}</h1>
+<!--template statement--> 
+<p>A paragraph is a series of related sentences developing a central idea, called the topic.
+   Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of sentences that supports one central,
+   unified idea. Paragraphs add one idea at a time to your broader argument.</p>
+<!--template reference variables--> 
+
+<h1 #values>hello welcome</h1>
+<button (click)="showvalues(values)">showvalues</button>
+<br><br>
+<input type="text" #myinput/>
+<button (click)="showinput(myinput)">onsubmit</button>
+
+<!--data binding--> 
+<input style = "color:green;
+				margin-top: 40px;
+				margin-left: 100px;"
+[value]='title'>
+<br><br>
+<button (click)="statementalert()">button</button>
+
+<input type="text" [value]='title'>
+
+<img alt="item" [src]="itemImageUrl">
+
+<h2>Two-way Binding</h2>    
+   <input [(ngModel)]="fullName" /> <br/><br/>    
+<p> {{fullName}} </p>  
+
+<div > 
+  <table > 
+    <thead>  
+    <tr> 
+      <th [attr.colspan]="colSpans"> student details </th>
+    </tr> 
+  </thead> 
+  <tbody  *ngFor="let user of users"> 
+  <tr> 
+      <td > {{user.name}} </td>
+      <td > {{user.mark}} </td>
+    </tr> 
+    </tbody>
+  </table>
+</div>
+
+
+<p [class.active]='true'>colorClass</p>
+
+<p [style.fontSize.px]="'50'">style</p>
+
+ <!-------------------------------------------------->
+ <br/><br/>  
+<div class='tl' style="border: 20px;"> 
+  <table class='tl' *ngFor="let user of users">  
+    <tr> 
+      <td class='tl'> {{user.name}} </td>
+      <td class='tl'> {{user.mark}} </td>
+      <td class='tl'> {{user.age}} </td>
+    </tr> 
+  </table>
+</div>
+
+<div *ngIf="users"> 
+  yes 
+</div>
+   
+<div *ngFor="let user of users"> 
+<div [ngSwitch]="user.gender"> 
+  <div *ngSwitchCase="'male'" class="male"> 
+    {{user.gender}}
+  </div>
+  <div *ngSwitchCase="'female'" class="female"> 
+    {{user.gender}}
+  </div>
+  <div *ngSwitchDefault> 
+    {{user.gender}}
+  </div>
+</div>
+</div>
+
+ <!--ngclass-->
+ <div [ngClass]="'one'"> 
+  ng class tesing part
+</div>
+
+<div [ngClass]="{'two':true,'three':false}"> 
+  ng class tesing part3
+</div>
+
+<ul [ngStyle]="{'text-decoration':foodstatus}">
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Milk</li>
+</ul>
+
+<button (click)="foodlist()">button</button>
+
+<!--filter--> 
+
+<h2>{{ testname | uppercase }}</h2>   
+
+
+<h2>{{ testname | lowercase }}</h2>  
+
+<p>DateTime as Milliseconds : {{todayNumber}} 
+  datepipe:{{todayNumber | date}}</p>
+  <p>DateTime as object : {{todayDate}} 
+  datepipe:{{todayDate | date}}</p>
+  <p>DateTime as string : {{todayString}} 
+  datepipe:{{todayString | date}}</p>
+  <p>DateTime as iso string : {{todayISOString}} 
+  datepipe:{{todayISOString | date}}</p>
+
+  <p>{{ decimal_value | number }}</p>
+
+  <div>
+    <!--output '26%'-->
+    <p>A: {{a | percent}}</p>
+
+    <!--output '0,134.950%'-->
+    <p>B: {{b | percent:'4.3-5'}}</p>
+
+  </div>
+
+  <!--output '$100.23'-->
+<p>{{Value | currency}}</p>
+
+<!--output '₹100.23'-->
+<p>{{Value | currency:'INR'}}</p>
+
+  <h1>{{names|json}}</h1>
+
+  <h1>{{array| slice: 2:6 }}</h1>
+  
+
+Enter first name:<input type = "text" [(ngModel)] = "firstName">
+Enter last name: <input type = "text" [(ngModel)] = "lastName">
+<br><br>
+Name in Upper Case: {{ firstName + " " + lastName | uppercase}}
+<br><br>
+Name in Lower Case: {{ firstName + " " + lastName | lowercase}}
+
+<br><br>
+fees: {{ Value | currency}}
+<br><br>
+
+ <!-- customer-pipes -->
+ <h2>{{ currency | tempvalues : 76.16 }}</h2>   
+ <!-- <input style="background-color:rgb(143, 219, 209)" type="text" [(ngModel)] = "searchvalue">
+<div *ngFor="let user of names"> 
+      <p> {{user.name}}</p>
+  </div> -->
+
+
+<!--expression-->
+<p>My first expression: {{ 5 + 5 }}</p>
+
+<input style="background-color:goldenrod" value="{{testname}}">
+
+  <p>Total: {{ quantity * cost }}</p>
+
+  <p>The name is {{ firstName + " " + lastName }}</p>
+
+  <div *ngFor="let user of users">  
+      <p>The name is {{ user.name }}</p>   
+      </div>
+
+  <p>array {{ array[2] }}</p>
+
