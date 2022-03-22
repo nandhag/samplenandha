@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Samplepage2Component } from '../samplepage2/samplepage2.component';
 
 @Component({
   selector: 'app-samplepage1',
@@ -8,9 +9,11 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 
 export class Samplepage1Component implements OnInit {
 
+ 
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
   title = 'samplepro';
@@ -33,9 +36,7 @@ export class Samplepage1Component implements OnInit {
 
   fullName: string = " ";  
 
-  currentcustomer='nandhu';
-
-
+ 
   users = [{name:'nandha',mark:10,age:88,gender:'male'}, {name:'kavin',mark:20,age:28,gender:'female'}, {name:'goapl',mark:30,age:38,gender:'male'}, 
   {name:'arun',mark:40,age:28,gender:'male'}, {name:'vus',mark:50,age:38,gender:'tran'}]; 
 
@@ -58,34 +59,13 @@ export class Samplepage1Component implements OnInit {
 
   foodlist() {
     this.foodstatus='none';
-  }
-
-  
-
-  // @ViewChild('tests') tests: any;
-
-  // ngOnInit() {
-  //   console.log(this.tests);
-  // }
-
- 
+  } 
    
   statementalert = () => {
     alert('sample');
   }
 
-  showinput(myinput:any)
-  {
-  console.log(myinput.value);
-  myinput.value='pls fill';
-  myinput.focus();
-  }
-
-  showvalues(values:any)
-  {
-  console.log(values);
-  }
-
+ 
   todayNumber: number = Date.now();
   todayDate : Date = new Date();
   todayString : string = new Date().toDateString();
