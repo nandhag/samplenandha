@@ -1,0 +1,31 @@
+.male
+{
+    background-color: red;
+}
+.female
+{
+    background-color: grey;
+}
+
+.tl {
+    border: 1px solid black;
+  }
+
+  .one{
+    background-color: indianred;
+    color: blue;
+  }
+
+  .two{
+    background-color: blue;
+    color: indianred;
+  }
+
+  .three{
+    background-color: red;
+    color: green;
+  }
+
+  .active{
+    color: green;
+  }

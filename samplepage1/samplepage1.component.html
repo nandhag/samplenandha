@@ -1,0 +1,247 @@
+
+<br>
+<!--data binding--> 
+<input style = "color:green;
+				margin-top: 40px;
+				margin-left: 100px;"
+[value]='title'>
+<br><br>
+<button (click)="statementalert()">button</button>
+
+<img alt="item" [src]="itemImageUrl">
+
+<input type="text" [value]='title'>
+
+<h2>Two-way Binding</h2>    
+   <input [(ngModel)]="fullName" /> <br/><br/>    
+<p> {{fullName}} </p>  
+
+<div > 
+  <table > 
+    <thead>  
+    <tr> 
+      <th [attr.colspan]="colSpans"> student details </th>
+    </tr> 
+  </thead> 
+  <tbody  *ngFor="let user of users"> 
+  <tr> 
+      <td > {{user.name}} </td>
+      <td > {{user.mark}} </td>
+    </tr> 
+    </tbody>
+  </table>
+</div>
+
+
+<p [class.active]='true'>colorClass</p>
+
+<p [style.fontSize.px]="'50'">style</p>
+
+ <!-------------------------------------------------->
+ <br/><br/>  
+<div class='tl' style="border: 20px;"> 
+  <table class='tl' *ngFor="let user of users">  
+    <tr> 
+      <td class='tl'> {{user.name}} </td>
+      <td class='tl'> {{user.mark}} </td>
+      <td class='tl'> {{user.age}} </td>
+    </tr> 
+  </table>
+</div>
+
+<div *ngIf="users"> 
+  yes 
+</div>
+   
+<div *ngFor="let user of users"> 
+<div [ngSwitch]="user.gender"> 
+  <div *ngSwitchCase="'male'" class="male"> 
+    {{user.gender}}
+  </div>
+  <div *ngSwitchCase="'female'" class="female"> 
+    {{user.gender}}
+  </div>
+  <div *ngSwitchDefault> 
+    {{user.gender}}
+  </div>
+</div>
+</div>
+
+ <!--ngclass-->
+ <div [ngClass]="'one'"> 
+  ng class tesing part
+</div>
+
+<div [ngClass]="{'two':true,'three':false}"> 
+  ng class tesing part3
+</div>
+
+<ul [ngStyle]="{'text-decoration':foodstatus}">
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Milk</li>
+</ul>
+
+<button (click)="foodlist()">button</button>
+
+<!--filter--> 
+
+<h2>{{ testname | uppercase }}</h2>   
+
+
+<h2>{{ testname | lowercase }}</h2>  
+
+<p>DateTime as Milliseconds : {{todayNumber}} 
+  datepipe:{{todayNumber | date}}</p>
+  <p>DateTime as object : {{todayDate}} 
+  datepipe:{{todayDate | date}}</p>
+  <p>DateTime as string : {{todayString}} 
+  datepipe:{{todayString | date}}</p>
+  <p>DateTime as iso string : {{todayISOString}} 
+  datepipe:{{todayISOString | date}}</p>
+
+  <p>{{ decimal_value | number }}</p>
+
+  <div>
+    <!--output '26%'-->
+    <p>A: {{a | percent}}</p>
+
+    <!--output '0,134.950%'-->
+    <p>B: {{b | percent:'4.3-5'}}</p>
+
+  </div>
+
+  <!--output '$100.23'-->
+<p>{{Value | currency}}</p>
+
+<!--output '₹100.23'-->
+<p>{{Value | currency:'INR'}}</p>
+
+  <h1>{{names|json}}</h1>
+
+  <h1>{{array| slice: 2:6 }}</h1>
+  
+
+Enter first name:<input type = "text" [(ngModel)] = "firstName">
+Enter last name: <input type = "text" [(ngModel)] = "lastName">
+<br><br>
+Name in Upper Case: {{ firstName + " " + lastName | uppercase}}
+<br><br>
+Name in Lower Case: {{ firstName + " " + lastName | lowercase}}
+
+<br><br>
+fees: {{ Value | currency}}
+<br><br>
+
+ <!-- customer-pipes -->
+ <h2>{{ currency | tempvalues : 76.16 }}</h2>   
+ <!-- <input style="background-color:rgb(143, 219, 209)" type="text" [(ngModel)] = "searchvalue">
+<div *ngFor="let user of names"> 
+      <p> {{user.name}}</p>
+  </div> -->
+
+
+<!--expression-->
+<p>My first expression: {{ 5 + 5 }}</p>
+
+<input style="background-color:goldenrod" value="{{testname}}">
+
+  <p>Total: {{ quantity * cost }}</p>
+
+  <p>The name is {{ firstName + " " + lastName }}</p>
+
+  <div *ngFor="let user of users">  
+      <p>The name is {{ user.name }}</p>   
+      </div>
+
+  <p>array {{ array[2] }}</p>
+
+  <h2>---------serives and Dependency Injection---------</h2>   
+
+<!--serives-->
+<button type="button" name='button' (click)="getinfoservices1()">button</button>
+
+  <div  style="border: 20px;"> 
+    <table  *ngFor="let info of infoReceived11">  
+      <tr> 
+        <td > {{info}} </td>
+      </tr> 
+    </table>
+  </div>
+
+  <button type="button" name='button' (click)="getinfoservices2()">button</button>
+
+  <div  style="border: 20px;"> 
+    <table  *ngFor="let info2 of infoReceived12">  
+      <tr> 
+        <td > {{info2}} </td>
+      </tr> 
+    </table>
+  </div>
+
+  <button type="button" name='button' (click)="getinfoservices3()">button</button>
+
+  <div  style="border: 20px;"> 
+    <table  *ngFor="let info2 of infoReceived13">  
+      <tr> 
+        <td > {{info2}} </td>
+      </tr> 
+    </table>
+  </div>
+
+<h2>---------Template Driven Form---------</h2>  
+<br><br><br>
+  <form (ngSubmit)="onSubmit(userForm)" #userForm="ngForm">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputName">Name</label>
+        <input type="name" class="form-control" id="inputName" placeholder="Name" ngModel>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputPassword">Password</label>
+        <input type="password" class="form-control" id="inputPassword" placeholder="Password" ngModel>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputAddress">Address</label>
+      <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" ngModel>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputCity">City</label>
+        <input type="text" class="form-control" id="inputCity" ngModel>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+
+  <h2>---------Reactive Form---------</h2>  
+<br><br><br>
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmits()">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputName">Name</label>
+        <input type="name" class="form-control" id="inputName" placeholder="Name" formControlName="name">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputPassword">Password</label>
+        <input type="password" class="form-control" id="inputPassword" placeholder="Password" formControlName="password">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputAddress">Address</label>
+      <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" formControlName="address">
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputCity">City</label>
+        <input type="text" class="form-control" id="inputCity" formControlName="inputcity">
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  <h2>---------value show---------</h2> 
+  
+
+  <h2>---------rest api---------</h2> 
